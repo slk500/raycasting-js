@@ -34,21 +34,21 @@ class Map {
         return this.grid[mapGridIndexY][mapGridIndexX];
     }
     render() {
-        for (var i = 0; i < MAP_NUM_ROWS; i++) {
-            for (var j = 0; j < MAP_NUM_COLS; j++) {
-                var tileX = j * TILE_SIZE;
-                var tileY = i * TILE_SIZE;
-                var tileColor = this.grid[i][j] != 0 ? "#222" : "#fff";
-                stroke("#222");
-                fill(tileColor);
-                rect(
-                    MINIMAP_SCALE_FACTOR * tileX,
-                    MINIMAP_SCALE_FACTOR * tileY,
-                    MINIMAP_SCALE_FACTOR * TILE_SIZE,
-                    MINIMAP_SCALE_FACTOR * TILE_SIZE
-                );
-            }
-        }
+            this.grid.forEach(function(row, rowNumber) {
+                row.forEach(function(item, index) {
+                    var tileColor = (item === 0) ? 'white' : 'black';
+                    var tileX = index * TILE_SIZE;
+                    var tileY = rowNumber * TILE_SIZE;
+                    stroke("black");
+                    fill(tileColor);
+                    rect(
+                         MINIMAP_SCALE_FACTOR * tileX,
+                         MINIMAP_SCALE_FACTOR * tileY,
+                         MINIMAP_SCALE_FACTOR * TILE_SIZE,
+                         MINIMAP_SCALE_FACTOR * TILE_SIZE
+                         );
+                });
+            });
     }
 }
 
