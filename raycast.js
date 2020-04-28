@@ -29,9 +29,6 @@ class Map {
         ];
     }
     getWallContentAt(x, y) {
-        if (x < 0 || x > WINDOW_WIDTH || y < 0 || y > WINDOW_HEIGHT) {
-            return 1;
-        }
         var mapGridIndexX = Math.floor(x / TILE_SIZE);
         var mapGridIndexY = Math.floor(y / TILE_SIZE);
         return this.grid[mapGridIndexY][mapGridIndexX];
