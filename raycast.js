@@ -239,14 +239,6 @@ var grid = new Map();
 var player = new Player();
 var rays = [];
 
-function normalizeAngle(angle) {
-    angle = angle % (2 * Math.PI);
-    if (angle < 0) {
-        angle = (2 * Math.PI) + angle;
-    }
-    return angle;
-}
-
 function castAllRays() {
     var columnId = 0;
 
